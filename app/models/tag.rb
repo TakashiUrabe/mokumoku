@@ -3,6 +3,4 @@ class Tag < ApplicationRecord
   has_many :events, through: :taggings
 
   validates :name, presence: true, uniqueness: true
-
-
 end

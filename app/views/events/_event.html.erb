@@ -8,9 +8,11 @@
         <%= link_to event.title, event_path(event)  %>
       </h4>
       <% event.tags.each do |tag| %>
-        <div class="bg-primary text-center p-1 text-white mb-3z rounded small">
-          <span><%= tag.name %></span>
-        </div>
+        <%= link_to tag_events_path(tag) do %>
+          <div class="bg-primary text-center p-1 text-white mb-3z rounded small">
+            <span><%= tag.name %></span>
+          </div>
+        <% end %>
       <% end %>
       <p class="card-text"><%= event.content %></p>
       <hr />

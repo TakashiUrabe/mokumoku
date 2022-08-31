@@ -57,6 +57,12 @@ class EventsController < ApplicationController
     end
   end
 
+  def search
+    @tag = Tag.find(params[:tag_id])
+    @events = @tag.events.order(created_at: :desc).page(params[:page])
+    render :index
+  end
+
   private
 
   def event_params

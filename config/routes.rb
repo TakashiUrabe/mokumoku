@@ -41,4 +41,7 @@ Rails.application.routes.draw do
       resources :events, only: %i[index]
     end
   end
+  resources :tags do
+    get 'events', to: 'events#search'
+  end
 end

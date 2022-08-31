@@ -29,8 +29,4 @@ class Event < ApplicationRecord
   def future?
     !past?
   end
-
-  def self.ransackable_scopes(auth_object = nil)
-    %i(women_only)
-  end
 end
