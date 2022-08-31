@@ -114,8 +114,8 @@ ActiveRecord::Schema.define(version: 2022_08_30_125531) do
     t.integer "tag_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index "\"tag_id\", \"post_id\"", name: "index_taggings_on_tag_id_and_post_id", unique: true
     t.index ["event_id"], name: "index_taggings_on_event_id"
+    t.index ["tag_id", "event_id"], name: "index_taggings_on_tag_id_and_event_id", unique: true
     t.index ["tag_id"], name: "index_taggings_on_tag_id"
   end
 
