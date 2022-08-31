@@ -7,6 +7,11 @@
       <h4 class="card-title fw-bold">
         <%= link_to event.title, event_path(event)  %>
       </h4>
+      <% event.tags.each do |tag| %>
+        <div class="bg-primary text-center p-1 text-white mb-3z rounded small">
+          <span><%= tag.name %></span>
+        </div>
+      <% end %>
       <p class="card-text"><%= event.content %></p>
       <hr />
       <div class="d-flex justify-content-between">
