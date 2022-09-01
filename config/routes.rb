@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resource :attendance, only: %i[create destroy], module: :events
     resource :bookmark, only: %i[create destroy], module: :events
     resources :comments, only: %i[create destroy], module: :events
+    get 'events', to: 'events#tag_search'
   end
 
   resources :notifications, only: %i[index show]
@@ -40,8 +41,5 @@ Rails.application.routes.draw do
     namespace :me do
       resources :events, only: %i[index]
     end
-  end
-  resources :tags do
-    get 'events', to: 'events#search'
   end
 end
