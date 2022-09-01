@@ -57,9 +57,15 @@ class EventsController < ApplicationController
     end
   end
 
+  def tag_search
+    @tag = Tag.find(params[:event_id])
+    @events = @tag.events.order(created_at: :desc).page(params[:page])
+    render :index
+  end
+
   private
 
   def event_params
-    params.require(:event).permit(:title, :content, :held_at, :prefecture_id, :thumbnail)
+    params.require(:event).permit(:title, :content, :held_at, :prefecture_id, :thumbnail, tag_ids: [])
   end
 end

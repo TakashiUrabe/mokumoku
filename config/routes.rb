@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resource :attendance, only: %i[create destroy], module: :events
     resource :bookmark, only: %i[create destroy], module: :events
     resources :comments, only: %i[create destroy], module: :events
+    get 'events', to: 'events#tag_search'
   end
 
   resources :notifications, only: %i[index show]
